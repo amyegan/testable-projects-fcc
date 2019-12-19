@@ -197,6 +197,45 @@ export default function createSurveyFormTests() {
           'The label with id="number-label" is not inside the form element '
         );
       });
+      
+      if(`The name, email, and number labels each have <code>for</code> attributes relating them to the corresponding inputs.`, function() {
+        const nameLabel = document.getElementById('name-label');
+        const emailLabel = document.getElementById('email-label');
+        const numberLabel = document.getElementById('number-label');
+        assert.strictEqual(
+          nameLabel.hasAttribute('for'),
+          true,
+          'The name input label should have a for attribute '
+        );
+        assert.isAbove(
+          numberLabel.for.length,
+          0,
+          "The name input label's for attribute should have some " +
+            'some text for its value '
+        );
+        assert.strictEqual(
+          emailLabel.hasAttribute('for'),
+          true,
+          'The email input label should have a for attribute '
+        );
+        assert.isAbove(
+          emailLabel.for.length,
+          0,
+          "The email input label's for attribute should have some " +
+            'some text for its value '
+        );
+        assert.strictEqual(
+          numberLabel.hasAttribute('for'),
+          true,
+          'The number input label should have a for attribute '
+        );
+        assert.isAbove(
+          numberLabel.for.length,
+          0,
+          "The number input label's for attribute should have some " +
+            'some text for its value '
+        );
+      });
 
       it(`For the name, email, and number input fields, I can see
       placeholder text that gives me a description or instructions for each
